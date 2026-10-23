@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="canonical" href="https://vivlings.com/">
+<link rel="alternate" hreflang="es" href="https://vivlings.com/?lang=es">
+<link rel="alternate" hreflang="en" href="https://vivlings.com/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://vivlings.com/">
+<title>Vivlings · Tracker de hábitos con mascota virtual | Habit tracker pet</title>
+<meta name="description" content="Vivlings: la mascota virtual que crece con tus hábitos. Pulsera + Huevo con huella digital para ejercicio, escuela y trabajo, con peleas entre amigos, podio semanal e IA opcional.">
+<meta property="og:site_name" content="Vivlings">
+<meta property="og:title" content="Vivlings · Tus hábitos, vivos">
+<meta property="og:description" content="La mascota que crece cuando entrenas, estudias o trabajas concentrado. Pelea contra tus amigos. Preventa con hasta 40% de descuento.">
+<meta property="og:type" content="product">
+<meta property="og:locale" content="es_MX">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://vivlings.com/img/kitbox.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Vivlings Kit: Viv Band + Huevo","brand":{"@type":"Brand","name":"Vivlings"},"description":"Tracker de hábitos con mascota virtual: pulsera que detecta tu ejercicio y Huevo con huella digital, voz y temporizador de enfoque, con peleas entre amigos.","image":"https://vivlings.com/img/kitbox.jpg","offers":{"@type":"Offer","price":"99","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://vivlings.com/"}}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Figtree:wght@500;700;800&family=Silkscreen&display=swap">
+<style>
+/* Layout: la página ES la caja — cartón kraft, viñetas de cómic con borde negro, globos de juego. Un solo look claro a propósito. Bilingüe ES/EN. */
+:root{
+  --kraft:#d8bf95;--kraft2:#ccb185;--paper:#fff8ea;--ink:#1d1a16;--muted:#5b4f3d;
+  --gris:#6b6f76;--brasa:#e85d3f;--mora:#8a4fd6;--mostaza:#e9b42c;--turq:#2bb4c0;--verde:#3cbf5a;--azul:#3b6fd8;
+  --c:#e85d3f;
+  --display:"Lilita One","Arial Rounded MT Bold","Arial Black",sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --px:"Silkscreen",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+[hidden]{display:none!important}
+:root:not([data-l="en"]) .en,:root[data-l="en"] .es{display:none!important}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:500 17px/1.55 var(--body);background:var(--kraft) radial-gradient(rgba(80,55,20,.10) 1px,transparent 1.4px) 0 0/7px 7px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:.01em}
+.out{color:var(--c);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--ink);transition:color .3s}
+h1{font-size:clamp(2.8rem,6.5vw,5.2rem)}h2{font-size:clamp(2.1rem,4.6vw,3.4rem)}h3{font-size:1.35rem}
+p{margin:0;max-width:62ch}img{display:block;max-width:100%}
+.px{font:400 .78rem/1.3 var(--px);text-transform:uppercase;letter-spacing:.05em}
+.note{font-size:.86rem;color:var(--muted);font-weight:600}
+.panel{background:var(--paper);border:3px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--ink)}
+.burst{background:repeating-conic-gradient(from 0deg at 50% 60%,var(--c) 0 9deg,color-mix(in srgb,var(--c) 75%,#fff) 9deg 18deg)}
+.dots{background-color:var(--c);background-image:radial-gradient(rgba(0,0,0,.18) 1.6px,transparent 2px);background-size:10px 10px}
+.bubble{position:relative;display:inline-flex;align-items:center;gap:8px;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:7px 15px;font:400 .9rem var(--px);box-shadow:3px 3px 0 var(--ink);white-space:nowrap}
+.meter{width:64px;height:9px;border:2px solid var(--ink);border-radius:99px;overflow:hidden;background:#fff}.meter i{display:block;height:100%;width:72%;background:var(--verde)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--c);color:#fff;border:3px solid var(--ink);border-radius:999px;padding:12px 22px;font:400 1.1rem var(--display);letter-spacing:.03em;cursor:pointer;text-decoration:none;box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s,background .3s;white-space:nowrap}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.btn.alt{background:#fff;color:var(--ink)}.btn.dark{background:var(--ink)}
+.btn.sm{padding:8px 14px;font-size:.95rem}
+:focus-visible{outline:3px dashed var(--ink);outline-offset:3px}
+section{padding-block:64px}
+.eyebrow{display:inline-block;background:var(--ink);color:var(--paper);padding:6px 12px;border-radius:8px;transform:rotate(-2deg);justify-self:start}
+.head{display:grid;gap:14px;justify-items:center;text-align:center;margin-bottom:30px}
+.head .eyebrow{justify-self:center}.head p{margin-inline:auto}
+.ph{width:100%;object-fit:cover;border-radius:16px;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.bar{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;padding-block:9px}
+.bar>div{display:inline-block;animation:tick 34s linear infinite;font:400 .82rem var(--px)}
+.bar span span{margin-right:40px}.bar b{color:var(--mostaza);font-weight:400}
+@keyframes tick{to{transform:translateX(-50%)}}
+nav{display:flex;justify-content:space-between;align-items:center;padding-block:14px;gap:12px}
+.logo{font:400 2rem var(--display);text-decoration:none}
+.navl{display:flex;gap:16px;align-items:center}
+.navl a.lk{color:var(--ink);text-decoration:none;font-weight:800}
+.lang{display:flex;border:3px solid var(--ink);border-radius:999px;overflow:hidden;box-shadow:3px 3px 0 var(--ink)}
+.lang button{border:0;background:#fff;color:var(--ink);font:400 .8rem var(--px);padding:8px 11px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.cartbtn{position:relative}.cartbtn b{position:absolute;top:-10px;right:-10px;background:var(--mostaza);color:var(--ink);border:2px solid var(--ink);border-radius:99px;min-width:24px;height:24px;display:grid;place-items:center;font:400 .8rem var(--display)}
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;padding-block:20px 72px}
+.copy{display:grid;gap:18px}
+.hlogo{width:min(300px,75%);border-radius:14px;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.stage{position:relative;padding:16px;border-radius:24px;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
+.stage>img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:3px solid var(--ink);background:var(--paper)}
+.stage .dev{position:absolute;right:-18px;bottom:-30px;width:26%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);transform:rotate(4deg);background:var(--paper)}
+.stage .b1{position:absolute;left:-12px;top:-20px;transform:rotate(-4deg)}
+.stage .b2{position:absolute;left:28px;bottom:-22px;transform:rotate(2deg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--ink);border-radius:99px;padding:3px 12px;font-weight:800;font-size:.88rem;background:#fff}
+.sw{display:flex;gap:10px;flex-wrap:wrap}
+.sw button{display:flex;align-items:center;gap:8px;border:3px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 14px 5px 5px;font:800 .92rem var(--body);cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.sw button i{width:24px;height:24px;border-radius:50%;border:2px solid var(--ink);display:block}
+.sw button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.price{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.price b{font:400 2.5rem var(--display)}.price s{font-weight:700;color:var(--muted)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);padding:0;overflow:hidden}
+.trust div{padding:16px 18px;display:grid;gap:2px;border-right:3px solid var(--ink)}
+.trust div:last-child{border-right:0}
+.trust b{font:400 1.15rem var(--display)}
+.tabs{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:22px}
+.tabs button{border:3px solid var(--ink);background:#fff;color:var(--ink);border-radius:14px;padding:10px 18px;font:400 1.2rem var(--display);cursor:pointer;box-shadow:4px 4px 0 var(--ink);display:grid;gap:2px;text-align:center}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.world{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;padding:0}
+.world .pic{border-right:3px solid var(--ink)}
+.world .pic img{width:100%;height:100%;min-height:340px;object-fit:cover}
+.world .txt{padding:28px;display:grid;gap:14px;align-content:center}
+.hlist{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hab{border:2px solid var(--ink);border-radius:12px;background:#fff;padding:9px 12px;font-weight:800;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.hab small{font:400 .66rem var(--px);color:var(--muted)}
+.statpill{display:inline-flex;gap:8px;align-items:center;color:#fff;border:3px solid var(--ink);border-radius:12px;padding:6px 14px;font:400 1.2rem var(--display);justify-self:start;box-shadow:3px 3px 0 var(--ink)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gal figure{margin:0;overflow:hidden;padding:0;display:grid}
+.gal img{width:100%;aspect-ratio:1/1;object-fit:cover;border-bottom:3px solid var(--ink)}
+.gal figcaption{padding:10px 14px}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch}
+.cell{padding:22px;display:grid;gap:10px;align-content:start;position:relative}
+.cell .num{font:400 .78rem var(--px);background:var(--ink);color:var(--paper);border-radius:6px;padding:4px 8px;justify-self:start}
+.cell.dots h3,.cell.dots p{color:#fff}.cell.dots .num{background:#fff;color:var(--ink)}
+.arrow{align-self:center;font:400 2.4rem var(--display)}
+.eggtop{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;margin-bottom:28px}
+.eggtop .ph{aspect-ratio:16/10}
+.specmini{display:grid;gap:10px}
+.specmini div{display:flex;gap:12px;align-items:center;background:var(--paper);border:3px solid var(--ink);border-radius:14px;padding:10px 14px;box-shadow:3px 3px 0 var(--ink)}
+.specmini b{font:400 1.1rem var(--display);min-width:110px}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.fcard{padding:0;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.fcard img{width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:3px solid var(--ink)}
+.fcard .t{padding:18px;display:grid;gap:8px;align-content:start}
+.fcard.dots .t h3,.fcard.dots .t p{color:#fff}
+.fcard .num{font:400 .74rem var(--px);background:var(--ink);color:var(--paper);border-radius:6px;padding:4px 8px;justify-self:start}
+.fcard.dots .num{background:#fff;color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.col{display:grid;gap:16px;align-content:start}
+.list{padding:4px 16px}
+.srow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:11px 0;border-bottom:2px dashed var(--kraft2)}
+.srow:last-child{border-bottom:0}
+.srow .px{width:104px}.srow b{font:400 1.15rem var(--display);min-width:80px}
+.chip.ok2{background:var(--verde);color:#fff}
+.demo{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;padding:0}
+.demo .l{padding:32px;display:grid;gap:16px;align-content:center}
+.demo .r{padding:32px;display:grid;place-items:center;border-left:3px solid var(--ink)}
+.screen{background:var(--paper);border:3px solid var(--ink);border-radius:22px;box-shadow:6px 6px 0 var(--ink);padding:18px;display:grid;gap:10px;justify-items:center;text-align:center;width:min(340px,100%);position:relative}
+.screen img{width:52%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;border:3px solid var(--ink)}
+.stats{width:100%;display:grid;gap:7px;text-align:left}
+.st{display:grid;grid-template-columns:76px 1fr 30px;gap:8px;align-items:center;font:400 .7rem var(--px)}
+.bar2{height:14px;border:2px solid var(--ink);border-radius:99px;overflow:hidden;background:#fff}.bar2 i{display:block;height:100%;width:10%;transition:width .35s}
+.moves{display:flex;flex-wrap:wrap;gap:10px}
+.moves .btn{font-size:.98rem;padding:8px 14px;background:#fff;color:var(--ink)}
+.moves .btn:hover{background:var(--c);color:#fff}
+@keyframes hop{40%{transform:translateY(-16px) rotate(-4deg)}}.hop{animation:hop .45s}
+@keyframes pop{0%{transform:scale(.6);opacity:0}30%{transform:scale(1.15);opacity:1}100%{transform:translateY(-40px);opacity:0}}
+.plus{position:absolute;font:400 1.4rem var(--display);color:var(--verde);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;animation:pop .9s forwards;pointer-events:none;white-space:nowrap}
+.arena{padding:0;overflow:hidden;margin-top:24px}
+.field{position:relative;height:400px;border-bottom:3px solid var(--ink);overflow:hidden;background:linear-gradient(#bfe3f2 0 55%,#9fd36b 55% 100%)}
+.field::before{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 120%,rgba(255,255,255,.28) 0 6deg,transparent 6deg 12deg)}
+.pad{position:absolute;width:34%;height:40px;border-radius:50%;background:#7cb84f;border:3px solid var(--ink);box-shadow:inset 0 -8px 0 rgba(0,0,0,.15)}
+.pad.r{right:6%;top:178px}.pad.m{left:6%;bottom:18px}
+.fm{position:absolute;transition:transform .18s}
+.fm img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;border:3px solid var(--ink);background:var(--paper);box-shadow:4px 4px 0 var(--ink)}
+.fm.r{right:14%;top:22px;width:min(130px,24%)}.fm.m{left:14%;bottom:36px;width:min(160px,28%)}
+.plate{position:absolute;background:var(--paper);border:3px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);padding:8px 12px;display:grid;gap:5px;width:min(250px,40%)}
+.plate.r{left:5%;top:30px}.plate.m{right:5%;bottom:40px}
+.plate .nm{display:flex;justify-content:space-between;gap:8px;font:400 1.1rem var(--display)}
+.plate .nm small{font:400 .68rem var(--px);align-self:center}
+.hp{height:14px;border:2px solid var(--ink);border-radius:99px;overflow:hidden;background:#fff}.hp i{display:block;height:100%;width:100%;background:var(--verde);transition:width .4s,background .4s}
+.plate .px{text-align:right;font-size:.68rem}
+@keyframes lungeM{50%{transform:translate(60px,-40px) rotate(6deg)}}@keyframes lungeR{50%{transform:translate(-60px,40px) rotate(-6deg)}}
+@keyframes hurt{0%,100%{transform:none;filter:none}20%{transform:translateX(-10px);filter:brightness(2.2)}40%{transform:translateX(10px)}60%{transform:translateX(-6px);filter:brightness(2.2)}}
+@keyframes faint{to{transform:translateY(40px) scale(.7);opacity:0}}
+.lungeM{animation:lungeM .35s}.lungeR{animation:lungeR .35s}.hurt{animation:hurt .45s}.faint{animation:faint .6s forwards}
+.dmg{position:absolute;font:400 2rem var(--display);color:#fff;-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;animation:pop 1s forwards;pointer-events:none;white-space:nowrap;z-index:3}
+.dmg.crit{color:var(--mostaza);font-size:2.4rem}
+.ko{position:absolute;inset:0;display:grid;place-items:center;z-index:4;pointer-events:none}
+.ko span{font:400 clamp(3rem,10vw,6rem) var(--display);color:var(--mostaza);-webkit-text-stroke:4px var(--ink);paint-order:stroke fill;text-shadow:6px 6px 0 var(--ink);transform:rotate(-6deg);animation:koin .5s}
+@keyframes koin{from{transform:scale(3) rotate(-6deg);opacity:0}}
+.ctrl{display:grid;grid-template-columns:1fr 1.1fr}
+.log{padding:18px 20px;font:400 .82rem/1.7 var(--px);border-right:3px solid var(--ink);min-height:140px;display:grid;align-content:center;background:#fff}
+.atk{padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--paper)}
+.atk button{border:3px solid var(--ink);border-radius:12px;box-shadow:3px 3px 0 var(--ink);padding:10px 12px;text-align:left;cursor:pointer;color:#fff;display:grid;gap:2px;font:400 1.1rem var(--display);transition:transform .1s}
+.atk button small{font:400 .64rem var(--px)}
+.atk button:hover:not(:disabled){transform:translate(-2px,-2px)}
+.atk button:disabled{opacity:.45;cursor:default}
+.atk .again{grid-column:1/-1;background:var(--ink);text-align:center}
+.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.podium-wrap{padding:18px;display:grid;gap:16px}
+.ptabs{display:flex;gap:8px;flex-wrap:wrap}.ptabs button{border:2px solid var(--ink);border-radius:99px;padding:5px 12px;background:#fff;color:var(--ink);font:400 .76rem var(--px);cursor:pointer}.ptabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.podium{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;align-items:end;text-align:center}
+.pd{display:grid;gap:4px;justify-items:center;position:relative}
+.pd img{width:68%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:3px solid var(--ink);background:var(--paper)}
+.pd b{font:400 1.15rem var(--display)}
+.blk{width:100%;border:3px solid var(--ink);border-radius:10px 10px 0 0;display:grid;place-items:center;font:400 2.2rem var(--display);color:#fff;-webkit-text-stroke:2px var(--ink);paint-order:stroke fill}
+.p1 .blk{background:var(--mostaza)}.p2 .blk{background:#b9bec6}.p3 .blk{background:#c9814a}.p1 img{width:82%}
+.crown{position:absolute;top:-16px;right:4px;transform:rotate(8deg);font-size:.76rem;padding:4px 10px}
+.rest{display:grid;gap:6px;border-top:2px dashed var(--kraft2);padding-top:12px}
+.plans{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:stretch}
+.plan{padding:22px;display:grid;gap:12px;align-content:start;position:relative}
+.plan .pr{font:400 2.2rem var(--display)}.plan .pr small{font:600 .9rem var(--body);color:var(--muted)}
+.plan ul{margin:0;padding-left:20px;display:grid;gap:4px;font-weight:600}
+.plan.hot{box-shadow:10px 10px 0 var(--ink)}
+.costs{margin-top:22px;padding:18px 22px;display:grid;gap:8px}
+.crow{display:grid;grid-template-columns:1fr auto;gap:10px;padding:8px 0;border-bottom:2px dashed var(--kraft2);align-items:center}
+.crow:last-child{border-bottom:0}
+.crow b{font:400 1.1rem var(--display)}
+.acc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}@media (max-width:1100px){.acc{grid-template-columns:1fr 1fr}}
+.acard{padding:0;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.acard img{width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:3px solid var(--ink)}
+.acard .t{padding:16px 18px;display:grid;gap:10px;align-content:start}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts button{border:2px solid var(--ink);border-radius:99px;padding:4px 10px;background:#fff;color:var(--ink);font:700 .82rem var(--body);cursor:pointer;display:flex;gap:6px;align-items:center}
+.opts button i{width:14px;height:14px;border-radius:50%;border:2px solid var(--ink);display:block}
+.opts button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.row b{font:400 1.7rem var(--display)}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.mon{padding:0;overflow:hidden;display:grid;cursor:pointer;text-align:left;font:inherit;color:inherit;transition:transform .15s}
+.mon:hover{transform:rotate(-1.5deg) translateY(-4px)}
+.mon .top{padding:14px;border-bottom:3px solid var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
+.mon .top img{aspect-ratio:3/4;object-fit:cover;width:100%;border-radius:12px;border:3px solid var(--ink);background:var(--paper)}
+.mon .bot{padding:14px 16px;display:grid;gap:4px}
+.shop{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.card{display:grid;grid-template-rows:auto auto auto 1fr auto;gap:12px;padding:16px;position:relative}
+.card .pic{height:260px;border-radius:12px;border:3px solid var(--ink);display:grid;place-items:center;overflow:hidden;background:#f6ecdb}
+.card .pic img{max-height:100%;width:auto;object-fit:contain}
+.card.best{box-shadow:10px 10px 0 var(--ink)}
+.tag{position:absolute;top:-16px;right:16px;transform:rotate(3deg);z-index:2}
+.card ul{margin:0;padding-left:20px;font-weight:600}
+.aitog{display:flex;gap:12px;align-items:center;margin-top:22px;padding:16px 20px;flex-wrap:wrap;justify-content:space-between}
+.aitog label{display:flex;gap:10px;align-items:center;font-weight:800;cursor:pointer}
+.aitog input{width:22px;height:22px;accent-color:var(--brasa)}
+.specs{overflow-x:auto;margin-top:36px;padding:8px 18px}
+table{width:100%;border-collapse:collapse;min-width:620px}
+th,td{padding:12px 8px;border-bottom:2px dashed var(--kraft2);text-align:left;vertical-align:top;font-size:.95rem}
+tr:last-child td{border-bottom:0}
+th{font:400 1.25rem var(--display)}
+td:first-child{font:400 .74rem var(--px);text-transform:uppercase;width:18%}
+.cta{padding:52px 28px;text-align:center;display:grid;gap:16px;justify-items:center}
+.cta h2,.cta p{color:#fff}
+.cta h2{-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:4px 4px 0 var(--ink)}
+form{display:flex;gap:10px;flex-wrap:wrap}
+input[type=email]{flex:1 1 220px;min-width:0;padding:13px 18px;border-radius:999px;border:3px solid var(--ink);background:#fff;color:var(--ink);font:600 1rem var(--body)}
+.ok{font:400 1.2rem var(--display)}
+footer.foot{padding-block:30px;font-weight:700;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.scrim{position:fixed;inset:0;background:rgba(29,26,22,.45);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--paper);border-left:3px solid var(--ink);z-index:41;display:grid;grid-template-rows:auto 1fr auto;padding-top:env(safe-area-inset-top,0px);padding-right:env(safe-area-inset-right,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:3px solid var(--ink)}
+.drawer .items{overflow:auto;padding:12px 18px;display:grid;gap:10px;align-content:start}
+.it{display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:center;border:2px solid var(--ink);border-radius:12px;padding:8px;background:#fff}
+.it img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:2px solid var(--ink)}
+.it .q{display:flex;gap:6px;align-items:center}
+.it .q button{width:28px;height:28px;border:2px solid var(--ink);border-radius:8px;background:#fff;font:400 1rem var(--display);cursor:pointer;color:var(--ink)}
+.drawer .df{display:grid;gap:10px;padding:16px 18px;border-top:3px solid var(--ink)}
+.tot{display:flex;justify-content:space-between;font:400 1.4rem var(--display)}
+.ordertxt{font:400 .72rem/1.5 var(--px);background:#fff;border:2px solid var(--ink);border-radius:10px;padding:10px;white-space:pre-wrap;max-height:160px;overflow:auto;user-select:all}
+.toast{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:50;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font:400 1rem var(--display)}
+@media (max-width:980px){.hero,.demo,.world,.two,.eggtop{grid-template-columns:1fr}.demo .r{border-left:0;border-top:3px solid var(--ink)}.world .pic{border-right:0;border-bottom:3px solid var(--ink)}.world .pic img{min-height:0;aspect-ratio:16/10}.team,.modes,.gal{grid-template-columns:1fr 1fr}.shop,.acc,.plans,.feat{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);justify-self:center}.navl a.lk{display:none}.stage .dev{right:-4px}.trust{grid-template-columns:1fr 1fr}.trust div:nth-child(2){border-right:0}.trust div:nth-child(-n+2){border-bottom:3px solid var(--ink)}}
+@media (max-width:560px){.team,.modes,.hlist{grid-template-columns:1fr}.demo .l,.demo .r,.world .txt{padding:20px}h1{-webkit-text-stroke-width:2px}.field{height:330px}.pad.r{top:150px}.plate{width:46%}.plate .nm{font-size:.95rem}.ctrl{grid-template-columns:1fr}.log{border-right:0;border-bottom:3px solid var(--ink);min-height:100px}.trust{grid-template-columns:1fr}.trust div{border-right:0;border-bottom:3px solid var(--ink)}.trust div:last-child{border-bottom:0}}
+@media (max-width:560px){nav{flex-wrap:wrap}.navl{flex-wrap:wrap;gap:10px;justify-content:flex-end}.logo{font-size:1.7rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+
+<div class="bar" aria-hidden="true"><div>
+<span class="es"><span>SENTADILLAS +12</span><span><b>¡LEVEL UP!</b></span><span>30 MIN DE ESTUDIO +25 MENTE</span><span>TAREA LISTA +20</span><span><b>¡GANASTE LA PELEA!</b></span><span>8 H DE SUEÑO +ENERGÍA</span><span>VIVLINGS · PREVENTA PRÓXIMAMENTE</span><span>SENTADILLAS +12</span><span><b>¡LEVEL UP!</b></span><span>30 MIN DE ESTUDIO +25 MENTE</span><span>TAREA LISTA +20</span><span><b>¡GANASTE LA PELEA!</b></span><span>8 H DE SUEÑO +ENERGÍA</span><span>VIVLINGS · PREVENTA PRÓXIMAMENTE</span></span>
+<span class="en"><span>SQUATS +12</span><span><b>LEVEL UP!</b></span><span>30 MIN STUDY +25 MIND</span><span>HOMEWORK DONE +20</span><span><b>YOU WON THE BATTLE!</b></span><span>8 H SLEEP +ENERGY</span><span>VIVLINGS · PRE-ORDERS SOON</span><span>SQUATS +12</span><span><b>LEVEL UP!</b></span><span>30 MIN STUDY +25 MIND</span><span>HOMEWORK DONE +20</span><span><b>YOU WON THE BATTLE!</b></span><span>8 H SLEEP +ENERGY</span><span>VIVLINGS · PRE-ORDERS SOON</span></span>
+</div></div>
+
+<div class="wrap">
+<nav>
+  <a class="logo out" href="#tienda">Vivlings</a>
+  <div class="navl">
+    <a class="lk" href="#habitos"><span class="es">Hábitos</span><span class="en">Habits</span></a>
+    <a class="lk" href="#huevo"><span class="es">El Huevo</span><span class="en">The Egg</span></a>
+    <a class="lk" href="#peleas"><span class="es">Peleas</span><span class="en">Battles</span></a>
+    <a class="lk" href="#ia"><span class="es">IA</span><span class="en">AI</span></a>
+    <a class="lk" href="#tienda"><span class="es">Tienda</span><span class="en">Shop</span></a>
+    <div class="lang" role="group" aria-label="Idioma / Language"><button data-l="es" aria-pressed="true">ES</button><button data-l="en" aria-pressed="false">EN</button></div>
+    <div class="lang" role="group" aria-label="Moneda / Currency" id="curbox"><button data-c="USD" aria-pressed="true">USD</button><button data-c="MXN" aria-pressed="false">MXN</button></div>
+    <button class="btn sm cartbtn" id="opencart"><span class="es">Carrito</span><span class="en">Cart</span><b id="ccount">0</b></button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="copy">
+    <img class="hlogo" src="img/logo.jpg" alt="Vivlings">
+    <span class="px eyebrow"><span class="es">Tracker de hábitos con mascota</span><span class="en">The habit tracker with a pet</span></span>
+    <h1 class="out"><span class="es">Tus hábitos, vivos</span><span class="en">Your habits, alive</span></h1>
+    <p><span class="es">Los Vivlings son mascotas que se alimentan de tus buenos hábitos. Entrena, estudia, trabaja concentrado o duerme bien y tu Vivling crece, evoluciona y pelea contra los de tus amigos. Las apps de hábitos se olvidan; a una mascota no la dejas morir.</span><span class="en">Vivlings are pets that feed on your good habits. Work out, study, focus at work or sleep well and your Vivling grows, evolves and battles your friends'. You forget habit apps; you won't let a pet go hungry.</span></p>
+    <div class="sw" role="group" aria-label="Color">
+      <button aria-pressed="true" data-i="0"><i style="background:var(--gris)"></i>Grafito</button>
+      <button aria-pressed="false" data-i="1"><i style="background:var(--brasa)"></i>Brasa</button>
+      <button aria-pressed="false" data-i="2"><i style="background:var(--mostaza)"></i>Mora</button>
+      <button aria-pressed="false" data-i="3"><i style="background:var(--turq)"></i><span class="es">Monstruitos</span><span class="en">Monsterlings</span></button>
+    </div>
+    <div class="price"><b class="money" data-p="kit"></b><s class="money" data-p="kitold"></s><span class="px"><span class="es">Precio fundador · primeros 500</span><span class="en">Founder price · first 500</span></span></div>
+    <div class="ctas"><button class="btn" data-add="kit"><span class="es">Agregar kit al carrito</span><span class="en">Add kit to cart</span></button><a class="btn alt" href="#habitos"><span class="es">Cómo funciona</span><span class="en">How it works</span></a></div>
+  </div>
+  <div class="stage burst">
+    <img id="wrist" src="img/office.jpg" alt="Vivlings in use">
+    <img id="dev" class="dev" src="img/dev0.jpg" alt="Vivlings Egg">
+    <span class="bubble b1">LEVEL 12 <span class="meter"><i></i></span></span>
+    <span class="bubble b2"><span class="es">HÁBITOS: 5/6</span><span class="en">HABITS: 5/6</span></span>
+  </div>
+</div>
+
+<div class="panel trust">
+  <div><b><span class="es">Sin celular</span><span class="en">No phone needed</span></b><span class="note"><span class="es">Pulsera y Huevo funcionan solos</span><span class="en">Band and Egg work on their own</span></span></div>
+  <div><b><span class="es">Huella digital</span><span class="en">Fingerprint</span></b><span class="note"><span class="es">Solo tú cuidas a tu mascota</span><span class="en">Only you can care for your pet</span></span></div>
+  <div><b><span class="es">Carga en el Nido</span><span class="en">Charges in the Nest</span></b><span class="note"><span class="es">Imán, USB-C o inalámbrica</span><span class="en">Magnetic, USB-C or wireless</span></span></div>
+  <div><b><span class="es">Para todo</span><span class="en">For everything</span></b><span class="note"><span class="es">Deporte, escuela, trabajo y bienestar</span><span class="en">Sport, school, work and wellbeing</span></span></div>
+</div>
+</div>
+
+<section id="habitos"><div class="wrap">
+  <div class="head">
+    <span class="px eyebrow"><span class="es">Un huevo, todos tus hábitos</span><span class="en">One egg, every habit</span></span>
+    <h2 class="out"><span class="es">Sirve para todo</span><span class="en">Works for everything</span></h2>
+    <p><span class="es">Cada hábito sube una habilidad de tu mascota. Mientras más equilibrada tu vida, más fuerte pelea.</span><span class="en">Each habit raises one of your pet's stats. The more balanced your life, the stronger it fights.</span></p>
+  </div>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-w="0"><span class="px"><span class="es">Sube Fuerza</span><span class="en">Raises Strength</span></span><span class="es">Deporte</span><span class="en">Sport</span></button>
+    <button role="tab" aria-selected="false" data-w="1"><span class="px"><span class="es">Sube Mente</span><span class="en">Raises Mind</span></span><span class="es">Escuela</span><span class="en">School</span></button>
+    <button role="tab" aria-selected="false" data-w="2"><span class="px"><span class="es">Sube Enfoque</span><span class="en">Raises Focus</span></span><span class="es">Trabajo</span><span class="en">Work</span></button>
+    <button role="tab" aria-selected="false" data-w="3"><span class="px"><span class="es">Sube Energía</span><span class="en">Raises Energy</span></span><span class="es">Bienestar</span><span class="en">Wellbeing</span></button>
+  </div>
+  <div class="panel world" aria-live="polite">
+    <div class="pic"><img id="wimg" src="img/running.jpg" alt=""></div>
+    <div class="txt">
+      <span class="px"><span class="es">Cómo se registra</span><span class="en">How it's logged</span></span>
+      <h3 id="whow"></h3>
+      <p id="wdesc"></p>
+      <div class="hlist" id="hlist"></div>
+      <span class="statpill" id="wstat"></span>
+    </div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="gal">
+    <figure class="panel"><img src="img/running.jpg" alt=""><figcaption class="px"><span class="es">Correr · muñeca</span><span class="en">Running · wrist</span></figcaption></figure>
+    <figure class="panel"><img src="img/cycling.jpg" alt="" style="object-position:72% 50%"><figcaption class="px"><span class="es">Bici · tobillo</span><span class="en">Cycling · ankle</span></figcaption></figure>
+    <figure class="panel"><img src="img/soccer.jpg" alt="" style="object-position:45% 50%"><figcaption class="px"><span class="es">Fútbol · tobillo</span><span class="en">Soccer · ankle</span></figcaption></figure>
+    <figure class="panel"><img src="img/yoga.jpg" alt="" style="object-position:55% 50%"><figcaption class="px"><span class="es">Yoga · muñeca</span><span class="en">Yoga · wrist</span></figcaption></figure>
+    <figure class="panel"><img src="img/squat.jpg" alt="" style="object-position:60% 50%"><figcaption class="px"><span class="es">Gym · muñeca</span><span class="en">Gym · wrist</span></figcaption></figure>
+    <figure class="panel"><img src="img/boxing.jpg" alt="" style="object-position:45% 50%"><figcaption class="px"><span class="es">Box · muñeca</span><span class="en">Boxing · wrist</span></figcaption></figure>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="head">
+    <span class="px eyebrow"><span class="es">Cómo funciona</span><span class="en">How it works</span></span>
+    <h2 class="out"><span class="es">Tres piezas, una mascota</span><span class="en">Three pieces, one pet</span></h2>
+  </div>
+  <div class="flow">
+    <div class="panel cell"><span class="num">01</span><h3>Viv Band</h3><p><span class="es">Detecta sola tu ejercicio: pasos, bici, carrera, sentadillas, lagartijas y sueño.</span><span class="en">Tracks your exercise on its own: steps, cycling, running, squats, push-ups and sleep.</span></p></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="panel cell dots"><span class="num">02</span><h3><span class="es">El Huevo</span><span class="en">The Egg</span></h3><p><span class="es">Recibe todo por Bluetooth. Ahí vive tu mascota, marcas tus otros hábitos y usas el temporizador para estudiar o trabajar.</span><span class="en">Receives everything over Bluetooth. Your pet lives there; log other habits and use the timer to study or work.</span></p></div>
+    <div class="arrow" aria-hidden="true">→</div>
+    <div class="panel cell"><span class="num">03</span><h3><span class="es">La app</span><span class="en">The app</span></h3><p><span class="es">Crea tus hábitos, ve tus rachas, pelea, entra al podio y mira a tu mascota en realidad aumentada.</span><span class="en">Create habits, see streaks, battle, climb the podium and see your pet in augmented reality.</span></p></div>
+  </div>
+</div></section>
+
+<section id="huevo" style="padding-top:0"><div class="wrap">
+  <div class="head">
+    <span class="px eyebrow"><span class="es">El Huevo Vivlings</span><span class="en">The Vivlings Egg</span></span>
+    <h2 class="out"><span class="es">Más que una mascota</span><span class="en">More than a pet</span></h2>
+  </div>
+  <div class="eggtop">
+    <img class="ph" src="img/lineup.jpg" alt="Vivlings Egg in four colors">
+    <div class="specmini">
+      <div><b><span class="es">Pantalla</span><span class="en">Screen</span></b><span><span class="es">Táctil a color de 2"</span><span class="en">2" color touchscreen</span></span></div>
+      <div><b><span class="es">Huella</span><span class="en">Fingerprint</span></b><span><span class="es">Sensor redondo con anillo de luz</span><span class="en">Round sensor with light ring</span></span></div>
+      <div><b><span class="es">Voz</span><span class="en">Voice</span></b><span><span class="es">Micrófono y bocina</span><span class="en">Mic and speaker</span></span></div>
+      <div><b><span class="es">Se lleva</span><span class="en">Carry it</span></b><span><span class="es">Correa, collar, mosquetón o funda</span><span class="en">Strap, lanyard, carabiner or case</span></span></div>
+      <div><b><span class="es">Conexión</span><span class="en">Connects</span></b><span><span class="es">Bluetooth y Wi-Fi</span><span class="en">Bluetooth and Wi-Fi</span></span></div>
+    </div>
+  </div>
+  <div class="feat">
+    <div class="panel fcard"><img src="img/finger.jpg" alt="Fingerprint unlock"><div class="t"><span class="num">ID</span><h3><span class="es">Solo abre con tu huella</span><span class="en">Opens only with your fingerprint</span></h3><p><span class="es">Nadie más puede alimentar, pelear o marcar hábitos con tu mascota. Se acabaron las trampas.</span><span class="en">Nobody else can feed, battle or log habits with your pet. No more cheating.</span></p></div></div>
+    <div class="panel fcard"><img src="img/voice.jpg" alt="Talking to the pet"><div class="t"><span class="num">IA</span><h3><span class="es">Platica con tu mascota</span><span class="en">Talk to your pet</span></h3><p><span class="es">Con Vivlings IA te pregunta si ya estudiaste, te arma tu día y te echa porras con su propia voz.</span><span class="en">With Vivlings AI it asks if you studied, plans your day and cheers you on in its own voice.</span></p></div></div>
+    <div class="panel fcard"><img src="img/hallway.jpg" alt="Pets say hi"><div class="t"><span class="num">HI!</span><h3><span class="es">Se saludan solos</span><span class="en">They say hi on their own</span></h3><p><span class="es">Cuando pasas cerca de otro Vivling, las mascotas se saludan y ganan estampas para su colección.</span><span class="en">Pass another Vivling and your pets say hi, earning stickers for their collection.</span></p></div></div>
+    <div class="panel fcard dots"><div class="t"><span class="num">STYLE</span><h3><span class="es">Hazla tuya</span><span class="en">Make it yours</span></h3><p><span class="es">Ropa, accesorios, colores y voz. Lo que ganas en peleas y podios se lo pones encima.</span><span class="en">Outfits, gear, colors and voice. What you win in battles and podiums, your pet wears.</span></p></div></div>
+    <div class="panel fcard"><div class="t"><span class="num">FOTO</span><h3><span class="es">Comprueba con foto</span><span class="en">Prove it with a photo</span></h3><p><span class="es">Para hábitos difíciles de medir, toma foto con la app: la tarea terminada, tu botella de agua o tu fruta.</span><span class="en">For hard-to-measure habits, snap a photo in the app: finished homework, your water bottle or your fruit.</span></p></div></div>
+    <div class="panel fcard dots"><div class="t"><span class="num">KIDS</span><h3><span class="es">Modo niños</span><span class="en">Kids mode</span></h3><p><span class="es">Papás y maestros ven el progreso, ponen límites de pantalla y aprueban amigos.</span><span class="en">Parents and teachers see progress, set screen limits and approve friends.</span></p></div></div>
+  </div>
+</div></section>
+
+<section id="carga" style="padding-top:0"><div class="wrap two">
+  <div class="col">
+    <span class="px eyebrow"><span class="es">Sin cambiar pilas</span><span class="en">No battery swaps</span></span>
+    <h2 class="out"><span class="es">El Nido de carga</span><span class="en">The charging Nest</span></h2>
+    <img class="ph" src="img/nestpack.jpg" alt="Charging Nest" style="aspect-ratio:16/10">
+    <p><span class="es">Opcional: se vende aparte. Deja el Huevo y la pulsera en el Nido antes de dormir y tu mascota se duerme contigo. Sin Nido, los dos cargan con cable USB-C.</span><span class="en">Optional, sold separately. Drop the Egg and band on the Nest at bedtime and your pet sleeps with you. Without it, both charge with a USB-C cable.</span></p>
+    <div class="panel list">
+      <div class="srow"><span class="px"><span class="es">Nido</span><span class="en">Nest</span></span><b><span class="es">Imán</span><span class="en">Magnetic</span></b><span class="chip"><span class="es">Carga los dos a la vez</span><span class="en">Charges both at once</span></span></div>
+      <div class="srow"><span class="px">USB-C</span><b><span class="es">Cable</span><span class="en">Cable</span></b><span class="chip"><span class="es">Cualquier cargador de cel</span><span class="en">Any phone charger</span></span></div>
+      <div class="srow"><span class="px"><span class="es">Inalámbrica</span><span class="en">Wireless</span></span><b>Qi</b><span class="chip"><span class="es">Bases Qi y celulares que comparten batería</span><span class="en">Qi pads and phones with battery share</span></span></div>
+      <div class="srow"><span class="px"><span class="es">Dura</span><span class="en">Lasts</span></span><b><span class="es">Días</span><span class="en">Days</span></b><span class="chip"><span class="es">Band 1–2 semanas · Huevo 2–3 días</span><span class="en">Band 1–2 weeks · Egg 2–3 days</span></span></div>
+    </div>
+  </div>
+  <div class="col">
+    <span class="px eyebrow"><span class="es">Precisión</span><span class="en">Accuracy</span></span>
+    <h2 class="out"><span class="es">Detecta cada movimiento</span><span class="en">Catches every move</span></h2>
+    <img class="ph" src="img/straps.jpg" alt="Viv Band straps" style="aspect-ratio:16/10">
+    <p><span class="es">La Viv Band lee tu cuerpo cien veces por segundo y una IA dentro del sensor reconoce qué estás haciendo.</span><span class="en">The Viv Band reads your body a hundred times a second, and AI inside the sensor recognizes what you're doing.</span></p>
+    <div class="panel list">
+      <div class="srow"><span class="px"><span class="es">Movimiento</span><span class="en">Motion</span></span><b>9 <span class="es">ejes</span><span class="en">axes</span></b><span class="chip"><span class="es">Acelerómetro, giroscopio y brújula</span><span class="en">Accelerometer, gyro and compass</span></span></div>
+      <div class="srow"><span class="px"><span class="es">Altura</span><span class="en">Altitude</span></span><b><span class="es">Barómetro</span><span class="en">Barometer</span></b><span class="chip"><span class="es">Escaleras, cerros, saltos</span><span class="en">Stairs, hills, jumps</span></span></div>
+      <div class="srow"><span class="px"><span class="es">Dónde</span><span class="en">Where</span></span><b><span class="es">4 lugares</span><span class="en">4 spots</span></b><span class="chip"><span class="es">Muñeca, tobillo, clip o pesa</span><span class="en">Wrist, ankle, clip or dumbbell</span></span></div>
+      <div class="srow"><span class="px"><span class="es">Aprende</span><span class="en">Learns</span></span><b>1 min</b><span class="chip"><span class="es">Se calibra con cómo te mueves tú</span><span class="en">Calibrates to how you move</span></span></div>
+    </div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="panel demo">
+    <div class="l">
+      <span class="px eyebrow"><span class="es">Pruébalo aquí</span><span class="en">Try it here</span></span>
+      <h2 class="out"><span class="es">Cuida a tu mascota</span><span class="en">Raise your pet</span></h2>
+      <p><span class="es">Toca un hábito y mira qué habilidad sube. Luego llévala a pelear abajo.</span><span class="en">Tap a habit and see which stat grows. Then take it to battle below.</span></p>
+      <div class="moves" id="moves"></div>
+    </div>
+    <div class="r dots">
+      <div class="screen" aria-live="polite" id="scr">
+        <span class="px" id="lvl"></span>
+        <img id="degg" src="img/pet0.jpg" alt="Pet">
+        <div class="stats" id="stats"></div>
+        <p id="msg" style="font-weight:800"></p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="peleas" style="padding-top:0"><div class="wrap">
+  <div class="head">
+    <span class="px eyebrow"><span class="es">Peleas</span><span class="en">Battles</span></span>
+    <h2 class="out"><span class="es">Tus hábitos pelean por ti</span><span class="en">Your habits fight for you</span></h2>
+    <p><span class="es">Acerca dos Huevos o reta a alguien desde la app. Gana la mascota con hábitos más fuertes, no el que pague más.</span><span class="en">Bring two Eggs together or challenge someone in the app. The pet with stronger habits wins, not whoever pays more.</span></p>
+  </div>
+  <img class="ph" src="img/battle.jpg" alt="Two friends battling their Vivlings" style="aspect-ratio:21/9">
+  <div class="panel arena">
+    <div class="field" id="field">
+      <div class="pad r"></div><div class="pad m"></div>
+      <div class="plate r"><div class="nm"><span id="rname">Leo</span><small id="rlvl">LV 3</small></div><div class="hp"><i id="hp2"></i></div><span class="px" id="hpt2">100/100</span></div>
+      <div class="fm r" id="fr"><img id="rimg" src="img/pet3.jpg" alt="Rival"></div>
+      <div class="fm m" id="fy"><img id="fimg" src="img/pet0.jpg" alt="Your pet"></div>
+      <div class="plate m"><div class="nm"><span><span class="es">Tu Vivling</span><span class="en">Your Vivling</span></span><small id="mlvl">LV 1</small></div><div class="hp"><i id="hp1"></i></div><span class="px" id="hpt1">100/100</span></div>
+      <div class="ko" id="ko" hidden><span id="kotext">K.O.!</span></div>
+    </div>
+    <div class="ctrl">
+      <div class="log" id="log" aria-live="polite"></div>
+      <div class="atk" id="atk"></div>
+    </div>
+  </div>
+  <div class="modes">
+    <div class="panel cell"><span class="num">1 VS 1</span><h3><span class="es">Duelo</span><span class="en">Duel</span></h3><p><span class="es">Acerca tu Huevo al de un amigo y empieza la pelea.</span><span class="en">Tap your Egg to a friend's and the fight begins.</span></p></div>
+    <div class="panel cell dots"><span class="num"><span class="es">SALÓN</span><span class="en">CLASS</span></span><h3><span class="es">Liga escolar</span><span class="en">Class league</span></h3><p><span class="es">El maestro crea la liga; gana quien más estudia y entrega tareas.</span><span class="en">The teacher creates a league; whoever studies and turns in homework most wins.</span></p></div>
+    <div class="panel cell"><span class="num">TEAM</span><h3><span class="es">Retos de oficina</span><span class="en">Office challenges</span></h3><p><span class="es">Equipos contra equipos en enfoque, pausas activas y pasos.</span><span class="en">Team vs team on focus time, active breaks and steps.</span></p></div>
+    <div class="panel cell dots"><span class="num">BOSS</span><h3><span class="es">Jefe semanal</span><span class="en">Weekly boss</span></h3><p><span class="es">Todos tus amigos juntos contra un monstruo gigante.</span><span class="en">All your friends together against a giant monster.</span></p></div>
+  </div>
+  <div class="two" style="margin-top:24px">
+    <figure class="panel fcard" style="margin:0"><img src="img/classroom.jpg" alt="Class league"><div class="t"><h3><span class="es">Liga escolar en el salón</span><span class="en">Class league</span></h3><p class="note"><span class="es">El maestro proyecta el podio del grupo cada semana.</span><span class="en">The teacher shows the class podium every week.</span></p></div></figure>
+    <figure class="panel fcard" style="margin:0"><img src="img/hike.jpg" alt="Family challenge"><div class="t"><h3><span class="es">Retos en familia</span><span class="en">Family challenges</span></h3><p class="note"><span class="es">Toda la familia suma pasos para vencer al jefe semanal.</span><span class="en">The whole family adds steps to beat the weekly boss.</span></p></div></figure>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap two">
+  <div class="col">
+    <span class="px eyebrow"><span class="es">Tus horarios</span><span class="en">Your schedule</span></span>
+    <h2 class="out"><span class="es">A tu hora, XP doble</span><span class="en">On time, double XP</span></h2>
+    <p><span class="es">Programa cuándo haces cada hábito. El Huevo vibra 10 minutos antes y, si cumples a tiempo, gana XP doble.</span><span class="en">Schedule each habit. The Egg buzzes 10 minutes before, and showing up on time earns double XP.</span></p>
+    <div class="panel list">
+      <div class="srow"><span class="px"><span class="es">Lun–Vie</span><span class="en">Mon–Fri</span></span><b>7:00</b><span class="chip">Gym</span><span class="chip ok2">XP x2</span></div>
+      <div class="srow"><span class="px"><span class="es">Lun–Jue</span><span class="en">Mon–Thu</span></span><b>17:00</b><span class="chip"><span class="es">Tarea 45 min</span><span class="en">Homework 45 min</span></span><span class="chip ok2">XP x2</span></div>
+      <div class="srow"><span class="px"><span class="es">Lun–Vie</span><span class="en">Mon–Fri</span></span><b>9:00</b><span class="chip"><span class="es">Enfoque 2 h</span><span class="en">Focus 2 h</span></span><span class="chip"><span class="es">Racha 12 días</span><span class="en">12-day streak</span></span></div>
+      <div class="srow"><span class="px"><span class="es">Sábado</span><span class="en">Saturday</span></span><b>8:00</b><span class="chip"><span class="es">Bici</span><span class="en">Cycling</span></span></div>
+      <div class="srow"><span class="px"><span class="es">Diario</span><span class="en">Daily</span></span><b>22:30</b><span class="chip"><span class="es">A dormir</span><span class="en">Bedtime</span></span><span class="chip"><span class="es">+Energía</span><span class="en">+Energy</span></span></div>
+    </div>
+    <p class="note"><span class="es">Rutina de ejemplo.</span><span class="en">Example routine.</span></p>
+  </div>
+  <div class="col">
+    <span class="px eyebrow"><span class="es">En la app</span><span class="en">In the app</span></span>
+    <h2 class="out"><span class="es">El podio de la semana</span><span class="en">This week's podium</span></h2>
+    <p><span class="es">Cada lunes se reinicia. El top 3 gana accesorios exclusivos para su mascota.</span><span class="en">Resets every Monday. The top 3 win exclusive gear for their pet.</span></p>
+    <img class="ph" src="img/app.jpg" alt="Vivlings app podium" style="aspect-ratio:16/9">
+    <div class="panel podium-wrap">
+      <div class="ptabs" role="group"><button aria-pressed="true" data-p="0"><span class="es">Amigos</span><span class="en">Friends</span></button><button aria-pressed="false" data-p="1"><span class="es">Mi salón</span><span class="en">My class</span></button><button aria-pressed="false" data-p="2"><span class="es">Mi trabajo</span><span class="en">My work</span></button></div>
+      <div class="podium">
+        <div class="pd p2"><img id="pi2" src="img/pet1.jpg" alt=""><b id="n2"></b><span class="px" id="x2"></span><div class="blk" style="height:84px">2</div></div>
+        <div class="pd p1"><span class="bubble crown">#1</span><img id="pi1" src="img/pet0.jpg" alt=""><b id="n1"></b><span class="px" id="x1"></span><div class="blk" style="height:124px">1</div></div>
+        <div class="pd p3"><img id="pi3" src="img/pet3.jpg" alt=""><b id="n3"></b><span class="px" id="x3"></span><div class="blk" style="height:60px">3</div></div>
+      </div>
+      <div class="rest" id="rest"></div>
+    </div>
+    <p class="note"><span class="es">Nombres y puntos de ejemplo.</span><span class="en">Example names and points.</span></p>
+  </div>
+</div></section>
+
+<section id="ia" style="padding-top:0"><div class="wrap">
+  <div class="head">
+    <span class="px eyebrow"><span class="es">Vivlings IA · opcional</span><span class="en">Vivlings AI · optional</span></span>
+    <h2 class="out"><span class="es">Una mascota que te ayuda con tu día</span><span class="en">A pet that helps with your day</span></h2>
+    <p><span class="es">La mascota, los hábitos, las peleas y el podio vienen incluidos para siempre. La IA es una suscripción opcional.</span><span class="en">The pet, habits, battles and podium are included forever. AI is an optional subscription.</span></p>
+  </div>
+  <div class="plans">
+    <div class="panel plan">
+      <span class="px"><span class="es">Incluido</span><span class="en">Included</span></span>
+      <h3><span class="es">Vivlings Básico</span><span class="en">Vivlings Basic</span></h3>
+      <div class="pr"><span class="es">Gratis</span><span class="en">Free</span></div>
+      <ul><li><span class="es">Mascota, hábitos y rachas</span><span class="en">Pet, habits and streaks</span></li><li><span class="es">Peleas y podio</span><span class="en">Battles and podium</span></li><li><span class="es">Horarios y recordatorios</span><span class="en">Schedules and reminders</span></li><li><span class="es">App con realidad aumentada</span><span class="en">AR app</span></li></ul>
+    </div>
+    <div class="panel plan hot">
+      <span class="bubble tag"><span class="es">RECOMENDADO</span><span class="en">RECOMMENDED</span></span>
+      <span class="px"><span class="es">Suscripción</span><span class="en">Subscription</span></span>
+      <h3>Vivlings IA</h3>
+      <div class="pr"><span class="money" data-p="ai"></span> <small><span class="es">/ mes</span><span class="en">/ month</span></small></div>
+      <ul><li><span class="es">Platica por voz con tu mascota</span><span class="en">Voice chat with your pet</span></li><li><span class="es">Te arma tu día cada mañana</span><span class="en">Plans your day every morning</span></li><li><span class="es">Recordatorios que se adaptan a ti</span><span class="en">Reminders that adapt to you</span></li><li><span class="es">Ayuda con tareas y pendientes</span><span class="en">Help with homework and to-dos</span></li><li><span class="es">Resumen semanal de tus hábitos</span><span class="en">Weekly habit summary</span></li></ul>
+      <button class="btn" data-add="ai"><span class="es">Agregar IA</span><span class="en">Add AI</span></button>
+    </div>
+    <div class="panel plan">
+      <span class="px"><span class="es">Ahorra</span><span class="en">Save</span></span>
+      <h3><span class="es">Vivlings IA anual</span><span class="en">Vivlings AI yearly</span></h3>
+      <div class="pr"><span class="money" data-p="aiyear"></span> <small><span class="es">/ año · ahorras 2 meses</span><span class="en">/ year · 2 months free</span></small></div>
+      <ul><li><span class="es">Todo lo de Vivlings IA</span><span class="en">Everything in Vivlings AI</span></li><li><span class="es">Pagas una vez al año</span><span class="en">Pay once a year</span></li></ul>
+      <button class="btn alt" data-add="aiyear"><span class="es">Agregar plan anual</span><span class="en">Add yearly plan</span></button>
+    </div>
+  </div>
+  <p class="note" style="text-align:center;margin-top:16px"><span class="es">Uso justo: hasta 20 minutos de voz al día; mensajes de texto ilimitados.</span><span class="en">Fair use: up to 20 voice minutes a day; unlimited text messages.</span></p>
+</div></section>
+
+<section id="accesorios" style="padding-top:0"><div class="wrap">
+  <div class="head">
+    <span class="px eyebrow"><span class="es">Accesorios</span><span class="en">Accessories</span></span>
+    <h2 class="out"><span class="es">Una correa para cada día</span><span class="en">A strap for every day</span></h2>
+    <p><span class="es">El sensor se cambia de correa en un segundo. Elige el estilo y el color.</span><span class="en">The sensor swaps straps in a second. Pick the style and color.</span></p>
+  </div>
+  <div class="acc" id="acc"></div>
+</div></section>
+
+<section id="equipo" style="padding-top:0"><div class="wrap">
+  <div class="head">
+    <span class="px eyebrow"><span class="es">Elige tu mascota</span><span class="en">Pick your pet</span></span>
+    <h2 class="out"><span class="es">Cuatro mascotas, cuatro estilos</span><span class="en">Four pets, four styles</span></h2>
+  </div>
+  <div class="team">
+    <button class="panel mon" data-i="0"><div class="top dots" style="--c:var(--gris)"><img src="img/pet0.jpg" alt="Grafito"><img src="img/dev0.jpg" alt=""></div><div class="bot"><h3>Grafito</h3><p class="note"><span class="es">El de cuernos. Para los disciplinados.</span><span class="en">The horned one. For the disciplined.</span></p></div></button>
+    <button class="panel mon" data-i="1"><div class="top dots" style="--c:var(--brasa)"><img src="img/pet1.jpg" alt="Brasa"><img src="img/dev1.jpg" alt=""></div><div class="bot"><h3>Brasa</h3><p class="note"><span class="es">El dragoncito. Para los competitivos.</span><span class="en">The little dragon. For the competitive.</span></p></div></button>
+    <button class="panel mon" data-i="2"><div class="top dots" style="--c:var(--mostaza)"><img src="img/pet2.jpg" alt="Mora"><img src="img/dev2.jpg" alt=""></div><div class="bot"><h3>Mora</h3><p class="note"><span class="es">El morado. Para los estudiosos.</span><span class="en">The purple one. For the studious.</span></p></div></button>
+    <button class="panel mon" data-i="3"><div class="top dots" style="--c:var(--turq)"><img src="img/pet3.jpg" alt="Monstruitos"><img src="img/dev3.jpg" alt=""></div><div class="bot"><h3><span class="es">Monstruitos</span><span class="en">Monsterlings</span></h3><p class="note"><span class="es">El de tres ojos. Edición para niños.</span><span class="en">The three-eyed one. Kids edition.</span></p></div></button>
+  </div>
+</div></section>
+
+<section id="tienda" style="padding-top:0"><div class="wrap">
+  <div class="head">
+    <span class="px eyebrow"><span class="es">Tienda · preventa</span><span class="en">Shop · pre-order</span></span>
+    <h2 class="out"><span class="es">Arma tu equipo</span><span class="en">Build your kit</span></h2>
+    <p><span class="es">Elige color, agrega al carrito y aparta tu pedido. Pagas al abrir la preventa.</span><span class="en">Pick a color, add to cart and reserve your order. You pay when pre-orders open.</span></p>
+  </div>
+  <div class="shop" id="shop"></div>
+  <div class="panel aitog">
+    <label><input type="checkbox" id="aicheck"> <span><span class="es">Agregar Vivlings IA a mi pedido</span><span class="en">Add Vivlings AI to my order</span> (<span class="money" data-p="ai"></span> <span class="es">/ mes</span><span class="en">/ month</span>)</span></label>
+    <span class="note"><span class="es">Cancelas cuando quieras.</span><span class="en">Cancel anytime.</span></span>
+  </div>
+  <p class="note" style="margin-top:14px;text-align:center"><span class="es">Precios de preventa de ejemplo. Paquetes para escuelas y empresas: escríbenos.</span><span class="en">Example pre-order prices. Packs for schools and companies: contact us.</span></p>
+  <div class="panel specs">
+    <table>
+      <tr><td></td><th>Viv Band</th><th><span class="es">Huevo</span><span class="en">Egg</span></th><th><span class="es">Nido</span><span class="en">Nest</span></th></tr>
+      <tr><td><span class="es">Cerebro</span><span class="en">Brain</span></td><td>nRF52840 · Bluetooth 5</td><td>ESP32-S3 · Bluetooth + Wi-Fi</td><td><span class="es">Cargador inalámbrico Qi</span><span class="en">Qi wireless charger</span></td></tr>
+      <tr><td><span class="es">Sensores</span><span class="en">Sensors</span></td><td><span class="es">Movimiento 9 ejes + barómetro</span><span class="en">9-axis motion + barometer</span></td><td><span class="es">Huella digital, micrófono, vibración</span><span class="en">Fingerprint, mic, haptics</span></td><td>—</td></tr>
+      <tr><td><span class="es">Pantalla</span><span class="en">Screen</span></td><td><span class="es">Luz LED</span><span class="en">LED light</span></td><td><span class="es">Táctil a color 2" · bocina 1 W</span><span class="en">2" color touch · 1 W speaker</span></td><td>—</td></tr>
+      <tr><td><span class="es">Batería</span><span class="en">Battery</span></td><td><span class="es">~120 mAh · 1–2 semanas</span><span class="en">~120 mAh · 1–2 weeks</span></td><td><span class="es">~600 mAh · 2–3 días</span><span class="en">~600 mAh · 2–3 days</span></td><td><span class="es">Se conecta por USB-C</span><span class="en">USB-C powered</span></td></tr>
+      <tr><td><span class="es">Carga</span><span class="en">Charging</span></td><td><span class="es">Nido magnético o Qi</span><span class="en">Magnetic Nest or Qi</span></td><td><span class="es">Nido, USB-C o Qi</span><span class="en">Nest, USB-C or Qi</span></td><td><span class="es">Carga los dos a la vez</span><span class="en">Charges both at once</span></td></tr>
+      <tr><td><span class="es">Tamaño</span><span class="en">Size</span></td><td><span class="es">Sensor ≈ 30 mm</span><span class="en">Sensor ≈ 30 mm</span></td><td><span class="es">Tamaño llavero</span><span class="en">Keychain size</span></td><td><span class="es">Palma de la mano</span><span class="en">Palm size</span></td></tr>
+    </table>
+    <p class="note" style="padding:6px 8px 10px"><span class="es">Especificaciones de prototipo con piezas comerciales, sujetas a cambio. No es un dispositivo médico.</span><span class="en">Prototype specs using off-the-shelf parts, subject to change. Not a medical device.</span></p>
+  </div>
+</div></section>
+
+<section id="apartar" style="padding-top:0"><div class="wrap">
+  <div class="panel cta burst">
+    <span class="bubble"><span class="es">¡TU VIVLING ESTÁ POR NACER!</span><span class="en">YOUR VIVLING IS ABOUT TO HATCH!</span></span>
+    <h2><span class="es">Sé de los primeros Vivlings</span><span class="en">Be one of the first Vivlings</span></h2>
+    <p style="font-weight:800;text-shadow:2px 2px 0 var(--ink)"><span class="es">La preventa abre pronto. Deja tu correo y aparta hasta 40% de descuento.</span><span class="en">Pre-orders open soon. Leave your email and lock in up to 40% off.</span></p>
+    <form id="f2" style="width:min(540px,100%)"><input id="e2" type="email" required placeholder="tu@correo.com" aria-label="Email"><button class="btn alt"><span class="es">Avísame</span><span class="en">Notify me</span></button></form>
+    <p class="ok" id="ok2" hidden style="color:#fff;-webkit-text-stroke:2px var(--ink);paint-order:stroke fill"><span class="es">¡Listo! Estás en la lista.</span><span class="en">Done! You're on the list.</span></p>
+  </div>
+</div></section>
+
+<div class="wrap"><footer class="foot"><span class="logo out" style="font-size:1.4rem">Vivlings</span><span><span class="es">© 2026 · Prototipo · Contacto · Envíos · Privacidad</span><span class="en">© 2026 · Prototype · Contact · Shipping · Privacy</span></span></footer></div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Cart">
+  <div class="dh"><h3><span class="es">Tu carrito</span><span class="en">Your cart</span></h3><button class="btn sm alt" id="closecart"><span class="es">Cerrar</span><span class="en">Close</span></button></div>
+  <div class="items" id="items"></div>
+  <div class="df">
+    <div class="tot"><span>Total</span><span id="total"></span></div>
+    <p class="note" id="aiNote" hidden><span class="es">+ Vivlings IA mensual</span><span class="en">+ Vivlings AI monthly</span></p>
+    <button class="btn" id="checkout"><span class="es">Apartar mi pedido</span><span class="en">Reserve my order</span></button>
+    <div id="done" hidden>
+      <p style="font-weight:800;margin-bottom:8px"><span class="es">¡Pedido listo! Mándanos este resumen y te enviamos tu link de pago.</span><span class="en">Order ready! Send us this summary and we'll send your payment link.</span></p>
+      <div class="ordertxt" id="ordertxt"></div>
+      <div class="ctas" style="margin-top:10px"><button class="btn sm dark" id="copyorder"><span class="es">Copiar pedido</span><span class="en">Copy order</span></button><a class="btn sm" id="waorder" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+  </div>
+</aside>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ===== CONFIGURACIÓN: cambia estos datos ===== */
+const CONFIG={whatsapp:'5210000000000', payLink:''}; // payLink: link de pago de Stripe o Mercado Pago (opcional)
+/* ============================================ */
+const MXN_TZ=/^America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana)$/;
+const PR={USD:{kit:99,kitold:129,band:69,egg:59,strap:12,premium:19,eggacc:12,nest:20,ai:7.99,aiyear:79},MXN:{kit:1799,kitold:2299,band:1249,egg:1049,strap:199,premium:349,eggacc:199,nest:349,ai:149,aiyear:1399}};
+let CUR='USD';try{if(MXN_TZ.test(Intl.DateTimeFormat().resolvedOptions().timeZone||''))CUR='MXN'}catch(e){}
+try{const sc=localStorage.getItem('vl-cur');if(sc==='USD'||sc==='MXN')CUR=sc}catch(e){}
+try{const qc=new URLSearchParams(location.search).get('cur');if(qc==='usd'||qc==='mxn')CUR=qc.toUpperCase()}catch(e){}
+const fmt=v=>CUR==='MXN'?'$'+v.toLocaleString('es-MX')+' MXN':'$'+(Number.isInteger(v)?v:v.toFixed(2))+' USD';
+const W=['img/office.jpg','img/voice.jpg','img/student.jpg','img/soccer.jpg'],E=['img/dev0.jpg','img/dev1.jpg','img/dev2.jpg','img/dev3.jpg'],P=['img/pet0.jpg','img/pet1.jpg','img/pet2.jpg','img/pet3.jpg'],C=['#6b6f76','#e85d3f','#8a4fd6','#2bb4c0'];
+const COLN={es:['Grafito','Brasa','Mora','Monstruitos'],en:['Grafito','Brasa','Mora','Monsterlings']};
+const SC={str:'#e85d3f',mind:'#8a4fd6',focus:'#3b6fd8',energy:'#3cbf5a'};
+const T={
+ es:{lvl:'Nivel',names:['Huevo','Cachorro','Atleta','Bestia','Leyenda'],stat:{str:'Fuerza',mind:'Mente',focus:'Enfoque',energy:'Energía'},hungry:'¡Hazme crecer con un hábito!',up:'¡LEVEL UP!',ph:'tu@correo.com',add:'Agregar',added:'Agregado al carrito',empty:'Tu carrito está vacío.',copied:'Pedido copiado',color:'Color',best:'MÁS POPULAR',ai:'Vivlings IA (mensual)',aiyear:'Vivlings IA (anual)',hi:'Hola, quiero apartar mi pedido de Vivlings:',pay:'Pagar',
+  moves:[['10 sentadillas','str',12],['Bici 10 km','str',18],['30 min de estudio','mind',14],['Tarea entregada','mind',10],['Enfoque 1 h','focus',15],['Bandeja vacía','focus',8],['8 h de sueño','energy',14],['2 L de agua','energy',8]],
+  worlds:[
+   {img:'img/running.jpg',h:[['Correr','Band'],['Bici','Band'],['Gym y pesas','Band'],['Caminar','Band'],['Yoga','Band'],['Fútbol','Band']],how:'Automático con la Viv Band',d:'La pulsera reconoce el ejercicio sola. En bici va en el tobillo; en el gym, en la muñeca o la mancuerna.',s:'str'},
+   {img:'img/student.jpg',h:[['Estudiar','Timer'],['Tarea','Botón'],['Leer','Timer'],['Repasar','Timer'],['Llegar a tiempo','Horario'],['Idiomas','App']],how:'Temporizador del Huevo',d:'Inicia una sesión de estudio en el Huevo. Si dejas el celular quieto todo el rato, tu mascota gana Mente extra.',s:'mind'},
+   {img:'img/office.jpg',h:[['Bloque de enfoque','Timer'],['Pausa activa','Band'],['Bandeja vacía','Botón'],['Junta a tiempo','Horario'],['Tareas del día','App'],['Desconectar','Horario']],how:'Botones y temporizador',d:'Trabaja en bloques de enfoque y marca tus pendientes con un botón. La pulsera te recuerda levantarte cada hora.',s:'focus'},
+   {img:'img/nest.jpg',h:[['Dormir 8 h','Band'],['Tomar agua','Botón'],['Meditar','Timer'],['Menos pantalla','App'],['Comer frutas','Foto'],['Hábito propio','App']],how:'Botón, pulsera o app',d:'La pulsera mide tu sueño. Todo lo demás lo marcas con un botón o una foto, y en la app creas los hábitos que quieras.',s:'energy'}],
+  pod:[[['Tú','3,410',-1],['Ana','2,940',1],['Leo','2,515',3]],[['Valeria','4,120',2],['Tú','3,410',-1],['Diego','3,005',1]],[['Equipo Ventas','12,800',1],['Tu equipo','11,950',-1],['Equipo TI','9,400',3]]],
+  rest:[['Sofi · 2,200','Iván · 1,870'],['Mateo · 2,640','Ximena · 2,310'],['Diseño · 8,700','Finanzas · 7,320']]},
+ en:{lvl:'Level',names:['Egg','Hatchling','Athlete','Beast','Legend'],stat:{str:'Strength',mind:'Mind',focus:'Focus',energy:'Energy'},hungry:'Grow me with a habit!',up:'LEVEL UP!',ph:'you@email.com',add:'Add',added:'Added to cart',empty:'Your cart is empty.',copied:'Order copied',color:'Color',best:'MOST POPULAR',ai:'Vivlings AI (monthly)',aiyear:'Vivlings AI (yearly)',hi:'Hi, I want to reserve my Vivlings order:',pay:'Pay',
+  moves:[['10 squats','str',12],['Bike 10 km','str',18],['30 min study','mind',14],['Homework done','mind',10],['1 h focus','focus',15],['Inbox zero','focus',8],['8 h sleep','energy',14],['2 L water','energy',8]],
+  worlds:[
+   {img:'img/running.jpg',h:[['Running','Band'],['Cycling','Band'],['Gym & weights','Band'],['Walking','Band'],['Yoga','Band'],['Soccer','Band']],how:'Automatic with the Viv Band',d:'The band recognizes your exercise by itself. On the bike it goes on your ankle; at the gym, on your wrist or dumbbell.',s:'str'},
+   {img:'img/student.jpg',h:[['Study','Timer'],['Homework','Button'],['Reading','Timer'],['Review','Timer'],['On time','Schedule'],['Languages','App']],how:"The Egg's timer",d:'Start a study session on the Egg. Leave your phone alone the whole time and your pet earns bonus Mind.',s:'mind'},
+   {img:'img/office.jpg',h:[['Focus block','Timer'],['Active break','Band'],['Inbox zero','Button'],['On-time meetings','Schedule'],['Daily tasks','App'],['Log off','Schedule']],how:'Buttons and timer',d:'Work in focus blocks and check off tasks with a button. The band reminds you to stand up every hour.',s:'focus'},
+   {img:'img/nest.jpg',h:[['Sleep 8 h','Band'],['Drink water','Button'],['Meditate','Timer'],['Less screen','App'],['Eat fruit','Photo'],['Custom habit','App']],how:'Button, band or app',d:'The band tracks your sleep. Log everything else with a button or a photo, and create any habit you want in the app.',s:'energy'}],
+  pod:[[['You','3,410',-1],['Ana','2,940',1],['Leo','2,515',3]],[['Valeria','4,120',2],['You','3,410',-1],['Diego','3,005',1]],[['Sales team','12,800',1],['Your team','11,950',-1],['IT team','9,400',3]]],
+  rest:[['Sofi · 2,200','Ivan · 1,870'],['Mateo · 2,640','Ximena · 2,310'],['Design · 8,700','Finance · 7,320']]}
+};
+const CAT={
+ kit:{img:'img/kitbox_c.jpg',name:{es:'Kit completo: Band + Huevo',en:'Full kit: Band + Egg'},desc:{es:['Viv Band con sensor','El Huevo con tu mascota','Cable USB-C incluido · Nido opcional'],en:['Viv Band with sensor','The Egg with your pet','USB-C cable included · Nest optional']},colors:true,best:true},
+ band:{img:'img/bandbox_c.jpg',name:{es:'Viv Band + Sensor',en:'Viv Band + Sensor'},desc:{es:['Pulsera con sensor','Cuenta tu ejercicio sola','Funciona con la app'],en:['Band with sensor','Tracks exercise on its own','Works with the app']},colors:true},
+ egg:{img:'img/eggbox_c.jpg',name:{es:'Solo el Huevo',en:'Egg only'},desc:{es:['Ideal para escuela y trabajo','Huella, voz y temporizador','Agrega la Band cuando quieras'],en:['Great for school and work','Fingerprint, voice and timer','Add the Band anytime']},colors:true},
+ strap:{img:'img/straps.jpg',name:{es:'Correa deportiva',en:'Sport strap'},sub:{es:'Silicón suave, 8 colores',en:'Soft silicone, 8 colors'},opts:[['Grafito','#4a4e55'],['Coral','#e8604a'],['Marino','#2b3f78'],['Mostaza','#e3b02f'],['Olivo','#6f7d3a'],['Turquesa','#2bb4c0'],['Lavanda','#a98be0'],['Blanco','#f4f1ea']]},
+ premium:{img:'img/premium.jpg',name:{es:'Correas premium',en:'Premium straps'},sub:{es:'Nylon, piel, malla de acero o tobillera',en:'Nylon, leather, steel mesh or ankle strap'},opts:[['Nylon','#2b3f78'],['Piel','#8a5a3b'],['Malla','#b9bec6'],['Tobillera','#1d1a16']]},
+ nest:{img:'img/nestpack.jpg',name:{es:'Nido de carga (opcional)',en:'Charging Nest (optional)'},sub:{es:'Carga Huevo y pulsera juntos. Sin Nido también cargan con cable USB-C.',en:'Charges Egg and band together. Without it, both charge with a USB-C cable.'},opts:[['Crema','#f4ead8']]},
+ eggacc:{img:'img/eggacc.jpg',name:{es:'Accesorios del Huevo',en:'Egg accessories'},sub:{es:'Correa de muñeca, collar, mosquetón o funda con orejitas',en:'Wrist strap, lanyard, carabiner or eared case'},opts:[['Correa de muñeca','#e85d3f'],['Collar','#2bb4c0'],['Mosquetón','#6b6f76'],['Funda','#a98be0']]}
+};
+let L='es',cur=0,world=0,podTab=0,xp=0,lvl=1;
+const st={str:25,mind:25,focus:25,energy:25};
+let cart=[];try{cart=JSON.parse(localStorage.getItem('vl-cart')||'[]').filter(x=>PR.USD[x.k]!==undefined)}catch(e){cart=[]}
+const sel={kit:0,band:0,egg:0};
+const $=id=>document.getElementById(id);
+function money(){document.querySelectorAll('.money').forEach(m=>m.textContent=fmt(PR[CUR][m.dataset.p]));document.querySelectorAll('#curbox button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===CUR))}
+document.querySelectorAll('#curbox button').forEach(b=>b.addEventListener('click',()=>{CUR=b.dataset.c;try{localStorage.setItem('vl-cur',CUR)}catch(e){}renderAcc();renderShop();renderCart();money()}));
+function setLang(l){
+  L=l;document.documentElement.dataset.l=l;document.documentElement.lang=l;
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l));
+  document.querySelectorAll('input[type=email]').forEach(i=>i.placeholder=T[l].ph);
+  renderWorld();renderMoves();renderPet();renderPod();renderAcc();renderShop();renderCart();money();
+  if(B){if(B.over){$('log').textContent=B.h2<=0?BT[L].win:BT[L].lose}else $('log').textContent=BT[L].appear(B.name);renderAtk()}
+}
+function pick(i){
+  cur=i;document.querySelectorAll('.sw button').forEach(x=>x.setAttribute('aria-pressed',+x.dataset.i===i));
+  $('wrist').src=W[i];$('dev').src=E[i];['degg','fimg'].forEach(id=>$(id).src=P[i]);
+  document.documentElement.style.setProperty('--c',C[i]);['kit','band','egg'].forEach(k=>sel[k]=i);renderShop();renderPod();
+}
+function renderWorld(){
+  const w=T[L].worlds[world];
+  $('hlist').innerHTML=w.h.map(h=>'<div class="hab">'+h[0]+'<small>'+h[1]+'</small></div>').join('');
+  $('whow').textContent=w.how;$('wdesc').textContent=w.d;$('wimg').src=w.img;
+  $('wstat').textContent='+ '+T[L].stat[w.s];$('wstat').style.background=SC[w.s];
+}
+function renderMoves(){$('moves').innerHTML=T[L].moves.map((m,i)=>'<button class="btn" data-m="'+i+'">'+m[0]+'</button>').join('')}
+function renderPet(){
+  const t=T[L];$('lvl').textContent=t.lvl+' '+lvl+' · '+t.names[Math.min(lvl,4)];
+  $('stats').innerHTML=Object.keys(st).map(k=>'<div class="st"><span>'+t.stat[k]+'</span><div class="bar2"><i style="width:'+Math.min(st[k],100)+'%;background:'+SC[k]+'"></i></div><span>'+st[k]+'</span></div>').join('');
+  if(!$('msg').dataset.set)$('msg').textContent=t.hungry;
+}
+function renderPod(){
+  const p=T[L].pod[podTab];
+  p.forEach((r,k)=>{const n=k+1;$('n'+n).textContent=r[0];$('x'+n).textContent=r[1]+' XP';$('pi'+n).src=r[2]<0?P[cur]:P[r[2]]});
+  $('rest').innerHTML=T[L].rest[podTab].map((r,k)=>'<span class="px">'+(k+4)+' · '+r+' XP</span>').join('');
+}
+function optsHTML(key){
+  const isColor=CAT[key].colors;const list=isColor?C.map((c,i)=>[COLN[L][i],c]):CAT[key].opts;
+  const s=sel[key]??0;
+  return '<div class="opts" role="group" aria-label="'+T[L].color+'">'+list.map((o,i)=>'<button data-k="'+key+'" data-o="'+i+'" aria-pressed="'+(i===s)+'"><i style="background:'+o[1]+'"></i>'+o[0]+'</button>').join('')+'</div>';
+}
+function renderAcc(){
+  $('acc').innerHTML=['strap','premium','eggacc','nest'].map(k=>{const c=CAT[k];return '<div class="panel acard"><img src="'+c.img+'" alt=""><div class="t"><h3>'+c.name[L]+'</h3><p class="note">'+c.sub[L]+'</p>'+optsHTML(k)+'<div class="row"><b>'+fmt(PR[CUR][k])+'</b><button class="btn sm" data-add="'+k+'">'+T[L].add+'</button></div></div></div>'}).join('');
+}
+function renderShop(){
+  $('shop').innerHTML=['band','kit','egg'].map(k=>{const c=CAT[k];return '<div class="panel card'+(c.best?' best':'')+'">'+(c.best?'<span class="bubble tag">'+T[L].best+'</span>':'')+'<div class="pic"><img src="'+c.img+'" alt=""></div><h3>'+c.name[L]+'</h3>'+optsHTML(k)+'<ul>'+c.desc[L].map(d=>'<li>'+d+'</li>').join('')+'</ul><div class="row"><b>'+fmt(PR[CUR][k])+'</b><button class="btn'+(c.best?'':' alt')+'" data-add="'+k+'">'+T[L].add+'</button></div></div>'}).join('');
+}
+function optName(k,o){const c=CAT[k];if(!c)return '';if(c.colors)return COLN[L][o];return c.opts[o]?c.opts[o][0]:''}
+function save(){try{localStorage.setItem('vl-cart',JSON.stringify(cart))}catch(e){}}
+function toast(t){const el=$('toast');el.textContent=t;el.hidden=false;clearTimeout(el._t);el._t=setTimeout(()=>el.hidden=true,1600)}
+function add(k){
+  if(k==='ai'||k==='aiyear'){if(!cart.find(x=>x.k===k))cart.push({k,o:0,q:1})}
+  else{const o=sel[k]??0;const f=cart.find(x=>x.k===k&&x.o===o);if(f)f.q++;else cart.push({k,o,q:1})}
+  save();renderCart();toast(T[L].added);
+}
+function itemName(x){if(x.k==='ai'||x.k==='aiyear')return T[L][x.k];const n=optName(x.k,x.o);return CAT[x.k].name[L]+(n?' · '+n:'')}
+function itemImg(x){if(x.k==='ai'||x.k==='aiyear')return P[cur];if(CAT[x.k].colors)return E[x.o];return CAT[x.k].img}
+function renderCart(){
+  $('ccount').textContent=cart.reduce((a,x)=>a+x.q,0);
+  $('items').innerHTML=cart.length?cart.map((x,i)=>'<div class="it"><img src="'+itemImg(x)+'" alt=""><div><b>'+itemName(x)+'</b><div class="note">'+fmt(PR[CUR][x.k])+'</div></div><div class="q"><button data-dec="'+i+'" aria-label="-">−</button><span>'+x.q+'</span><button data-inc="'+i+'" aria-label="+">+</button></div></div>').join(''):'<p class="note">'+T[L].empty+'</p>';
+  const tot=cart.filter(x=>x.k!=='ai').reduce((a,x)=>a+PR[CUR][x.k]*x.q,0);
+  $('total').textContent=fmt(Math.round(tot*100)/100);$('aiNote').hidden=!cart.find(x=>x.k==='ai');
+  $('aicheck').checked=!!cart.find(x=>x.k==='ai');$('done').hidden=true;$('checkout').hidden=!cart.length;
+}
+function openCart(o){$('drawer').hidden=!o;$('scrim').hidden=!o}
+document.addEventListener('click',e=>{
+  const a=e.target.closest('[data-add]');if(a){add(a.dataset.add);return}
+  const op=e.target.closest('.opts button');if(op){sel[op.dataset.k]=+op.dataset.o;op.parentElement.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b===op));return}
+  const inc=e.target.closest('[data-inc]');if(inc){cart[+inc.dataset.inc].q++;save();renderCart();return}
+  const dec=e.target.closest('[data-dec]');if(dec){const i=+dec.dataset.dec;cart[i].q--;if(cart[i].q<=0)cart.splice(i,1);save();renderCart();return}
+});
+$('aicheck').addEventListener('change',e=>{if(e.target.checked)add('ai');else{cart=cart.filter(x=>x.k!=='ai');save();renderCart()}});
+$('opencart').addEventListener('click',()=>openCart(true));$('closecart').addEventListener('click',()=>openCart(false));$('scrim').addEventListener('click',()=>openCart(false));
+$('checkout').addEventListener('click',()=>{
+  const lines=cart.map(x=>x.q+' × '+itemName(x)+' — '+fmt(Math.round(PR[CUR][x.k]*x.q*100)/100));
+  const txt=T[L].hi+'\n'+lines.join('\n')+'\nTotal: '+$('total').textContent;
+  $('ordertxt').textContent=txt;
+  $('waorder').href=CONFIG.payLink||('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent(txt));
+  $('waorder').textContent=CONFIG.payLink?T[L].pay:'WhatsApp';$('done').hidden=false;
+});
+$('copyorder').addEventListener('click',()=>{const t=$('ordertxt').textContent;try{navigator.clipboard.writeText(t).then(()=>toast(T[L].copied),()=>{})}catch(e){}});
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{setLang(b.dataset.l);try{localStorage.setItem('vl-lang',b.dataset.l)}catch(e){}}));
+document.querySelectorAll('.sw button').forEach(b=>b.addEventListener('click',()=>pick(+b.dataset.i)));
+document.querySelectorAll('.mon').forEach(b=>b.addEventListener('click',()=>{pick(+b.dataset.i);$('wrist').scrollIntoView({behavior:'smooth',block:'center'})}));
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{world=+b.dataset.w;document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));renderWorld()}));
+document.querySelectorAll('.ptabs button').forEach(b=>b.addEventListener('click',()=>{podTab=+b.dataset.p;document.querySelectorAll('.ptabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderPod()}));
+$('f2').addEventListener('submit',e=>{e.preventDefault();e.target.hidden=true;$('ok2').hidden=false});
+$('moves').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;const m=T[L].moves[+b.dataset.m];
+  st[m[1]]=Math.min(st[m[1]]+m[2],100);xp+=m[2]*3;let up=false;
+  while(xp>=100&&lvl<4){xp-=100;lvl++;up=true}
+  const pet=$('degg');pet.classList.remove('hop');void pet.offsetWidth;pet.classList.add('hop');
+  $('msg').dataset.set=1;$('msg').textContent=up?T[L].up+' '+T[L].names[lvl]:'+'+m[2]+' '+T[L].stat[m[1]];
+  const s=document.createElement('span');s.className='plus';s.textContent=up?T[L].up:'+'+m[2]+' '+T[L].stat[m[1]];
+  s.style.left=(20+Math.random()*30)+'%';s.style.top='28%';$('scr').appendChild(s);setTimeout(()=>s.remove(),900);
+  renderPet();if(B){$('mlvl').textContent='LV '+lvl;if(!busy&&!B.over)renderAtk()}
+});
+let B=null,busy=false;
+const RIV=[['Leo',3],['Ana',1],['Sofi',2]];
+const ATK={es:{str:'Puño de pesas',mind:'Rayo cerebral',focus:'Mirada láser',energy:'Siesta turbo'},en:{str:'Dumbbell Punch',mind:'Brain Beam',focus:'Laser Focus',energy:'Power Nap'}};
+const BT={es:{appear:n=>'¡'+n+' quiere pelear! Elige un ataque.',use:(a,m)=>a+' usó '+m+'.',crit:'¡Súper efectivo!',weak:'No fue muy efectivo…',win:'¡K.O.! Ganaste. Tus hábitos fueron más fuertes.',lose:'Tu Vivling se cansó. Sube habilidades arriba y pide revancha.',again:'Revancha',you:'Tu Vivling',pow:'Poder'},
+ en:{appear:n=>n+' wants to battle! Pick an attack.',use:(a,m)=>a+' used '+m+'.',crit:"It's super effective!",weak:"It's not very effective…",win:'K.O.! You win. Your habits were stronger.',lose:'Your Vivling is worn out. Level up above and ask for a rematch.',again:'Rematch',you:'Your Vivling',pow:'Power'}};
+function newBattle(){
+  const k=Object.keys(st),r=RIV[Math.floor(Math.random()*RIV.length)],ri=[0,1,2,3].filter(i=>i!==cur)[Math.floor(Math.random()*3)];
+  B={h1:100,h2:100,rs:{},weak:k[Math.floor(Math.random()*4)],name:r[0],over:false};
+  k.forEach(x=>B.rs[x]=18+Math.floor(Math.random()*24));
+  $('rimg').src=P[ri];$('rname').textContent=r[0];$('rlvl').textContent='LV '+r[1];$('mlvl').textContent='LV '+lvl;
+  $('fy').className='fm m';$('fr').className='fm r';$('ko').hidden=true;
+  hp();$('log').textContent=BT[L].appear(r[0]);renderAtk();
+}
+function hp(){[[1,B.h1],[2,B.h2]].forEach(([n,v])=>{const i=$('hp'+n);i.style.width=v+'%';i.style.background=v>50?'#3cbf5a':v>20?'#e9b42c':'#e85d3f';$('hpt'+n).textContent=Math.max(0,Math.round(v))+'/100'})}
+function renderAtk(){
+  const t=BT[L];
+  $('atk').innerHTML=B&&B.over?'<button class="again" id="again">'+t.again+'</button>':Object.keys(st).map(k=>'<button data-k="'+k+'" style="background:'+SC[k]+'"'+(busy?' disabled':'')+'>'+ATK[L][k]+'<small>'+T[L].stat[k]+' · '+t.pow+' '+st[k]+'</small></button>').join('');
+}
+function boom(target,d,crit){const f=$('field'),t=$(target),s=document.createElement('span');s.className='dmg'+(crit?' crit':'');s.textContent='−'+d;
+  s.style.left=(t.offsetLeft+t.offsetWidth*.3)+'px';s.style.top=(t.offsetTop+10)+'px';f.appendChild(s);setTimeout(()=>s.remove(),1000)}
+function hit(me,k){
+  const t=BT[L],pow=me?st[k]:B.rs[k],crit=me&&k===B.weak,low=pow<16;
+  let d=Math.round(pow*0.45+4+Math.random()*7);if(crit)d=Math.round(d*1.6);
+  const a=$(me?'fy':'fr'),v=$(me?'fr':'fy');
+  a.classList.add(me?'lungeM':'lungeR');setTimeout(()=>a.classList.remove('lungeM','lungeR'),360);
+  setTimeout(()=>{v.classList.remove('hurt');void v.offsetWidth;v.classList.add('hurt');boom(me?'fr':'fy',d,crit);
+    if(me)B.h2=Math.max(0,B.h2-d);else B.h1=Math.max(0,B.h1-d);hp()},180);
+  return t.use(me?t.you:B.name,ATK[L][k])+(crit?' '+t.crit:low&&me?' '+t.weak:'');
+}
+function end(win){B.over=true;busy=false;$(win?'fr':'fy').classList.add('faint');$('kotext').textContent=win?'K.O.!':(L==='es'?'¡AGOTADO!':'WORN OUT!');$('ko').hidden=false;$('log').textContent=win?BT[L].win:BT[L].lose;renderAtk()}
+$('atk').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.id==='again'){newBattle();return}
+  if(busy||B.over)return;busy=true;renderAtk();
+  $('log').textContent=hit(true,b.dataset.k);
+  setTimeout(()=>{
+    if(B.h2<=0)return end(true);
+    const k=Object.keys(B.rs)[Math.floor(Math.random()*4)];
+    $('log').textContent=hit(false,k);
+    setTimeout(()=>{if(B.h1<=0)return end(false);busy=false;renderAtk()},700);
+  },900);
+});
+const ES_TZ=/^(America\/(Mexico_City|Cancun|Merida|Monterrey|Matamoros|Chihuahua|Ciudad_Juarez|Ojinaga|Mazatlan|Bahia_Banderas|Hermosillo|Tijuana|Bogota|Lima|Santiago|Punta_Arenas|Argentina\/.*|Buenos_Aires|Caracas|Guatemala|El_Salvador|Tegucigalpa|Managua|Costa_Rica|Panama|Havana|Santo_Domingo|Puerto_Rico|La_Paz|Asuncion|Montevideo|Guayaquil)|Europe\/Madrid|Atlantic\/Canary|Africa\/(Ceuta|Malabo)|Pacific\/(Galapagos|Easter))$/;
+function detectLang(){
+  const h=location.hash.slice(1);if(h==='en'||h==='es')return h;
+  try{const q=new URLSearchParams(location.search).get('lang');if(q==='en'||q==='es')return q}catch(e){}
+  try{const s=localStorage.getItem('vl-lang');if(s)return s}catch(e){}
+  try{const tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';if(tz)return ES_TZ.test(tz)?'es':'en'}catch(e){}
+  return (navigator.language||'en').toLowerCase().startsWith('es')?'es':'en';
+}
+newBattle();setLang(detectLang());
+</script>
+</body>
+</html>
